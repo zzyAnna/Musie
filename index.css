@@ -61,7 +61,6 @@
   border: none;
   text-align: center;
   margin-top: 3.3rem;
-  margin-bottom:
 }
 
 .create-button {
@@ -102,7 +101,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 10rem;
+  margin-top: 9rem;
 }
 
 #prompt-text{
@@ -119,4 +118,15 @@
 
 #prompt-wrapper{
   width: 100%;
+}
+
+#another-button{
+  width: 16rem;
+  position: relative;
+  margin-top: 14.5rem;
+}
+
+#another-wrapper{
+  width: 100%;
+  text-align: center;
 }

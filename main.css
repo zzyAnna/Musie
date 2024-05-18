@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo-pic {
+  width: 10%;
+  position: relative;
+  left: 1.5rem;
+  top: 1rem;
+}
+
+.title {
+  color: blueviolet;
+  font-size: 3.438rem;
+  letter-spacing: 0.15rem;
+  font-weight: bold;
+  font-family: cursive;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
+}
+
+.text {
+  color: black;
+  text-align: justify;
+  /* margin: 3rem 0 1rem 0; */
+  font-family: product sans;
+  font-size: 1.2rem;
+  width: 80%;
+}
+
+#intro-wrapper {
+  width: 100%;
+  border: 1px solid black;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.customize-text {
+  color: black;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-family: Arial;
+}
+
+.create-button {
+  display: inline-block;
+  /* Changed to inline-block */
+  font-family: arial;
+  margin-top: 1.5rem;
+  border-radius: 2.5rem;
+  border: 2px solid blueviolet;
+  padding: .625rem 1.25rem;
+  background-color: white;
+  color: blueviolet;
+  transition: background-color 0.15s, color 0.15s;
+  width: 8.5rem;
+  text-align: center;
+}
+
+.get-started {
+  text-decoration: none;
+}
+
+#button-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.create-button:hover {
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
+}
+
+.customize-button {
+  padding: 1.5rem;
+  border: 1.5px solid #000;
+  height: 27.5rem;
+  width: 26rem;
+  text-align: center;
+  border-radius: 2.5rem;
+}
+
+.customize-pic {
+  height: 22rem;
+  width: 22rem;
+  border-radius: 2.5rem;
+}
+
+.style-button {
+  margin-right: 1.25rem;
+}
+
+button:hover {
+  background-color: rgb(248, 248, 248);
+}
+
+.generate-button {
+  display: block;
+  margin: auto;
+  font-family: arial;
+  margin-top: 1.5rem;
+  border-radius: 2.5rem;
+  border: 2px solid blueviolet;
+  padding: .625rem 1.25rem;
+  background-color: white;
+  color: blueviolet;
+  transition: background-color 0.15s, color 0.15s;
+  width: 8.5rem;
+  position: absolute;
+  top: 40rem;
+  right: 5rem;
+}
+
+.generate-button:hover {
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
+}
+
+label {
+  font-weight: bold;
+  color: rgb(104, 31, 173);
+  margin-bottom: 0.6rem;
+  font-size: 20px;
+  position: relative;
+  top: 1.5rem;
+  left: 16rem;
+}
+
+p {
+  font-size: 16px;
+  position: relative;
+  top: 1.3rem;
+  left: 17rem;
+}
+
+select {
+  position: relative;
+  left: 17rem;
+  top: -0.7rem;
+}
+
+.save {
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+button:hover {
+  color: white;
+  background-color: blueviolet;
+}
+
+#button-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+#button-wrapper-inst {
+  border: 1px solid #000;
+  display: flex;
+  justify-content: space-around;
+  /* Align items to the start with no spacing */
+  align-items: center;
+  /* Vertically center the buttons */
+  width: 60%;
+  margin: 3rem auto;
+}

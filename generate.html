@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Musie</title>
+    <link rel="icon" href="images/logo-pure.png">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">  
+  </head>
+
+  <body>
+    <div class="header">
+      <div><a href="index.html"><img class="logo-pic" src="images/logo.png"></a></div>
+      <div class="title">Here is your generated music!</div>
+    </div>
+
+    <div id="audio-wrapper">
+      <audio id="audio-player" controls>
+        Your browser does not support the audio element.
+      </audio>
+  </div>
+
+  <div id="prompt-wrapper">
+    <p id="prompt-text"></p>
+  </div>
+
+  <script>
+    const prompt = 'This is a piece of '+localStorage.getItem("genre")+
+        ' music with a '+localStorage.getItem("solo-instrument")+' as a solo instrument, a '+
+        localStorage.getItem("accompaniment-instrument")+' as an accompaniment instrument, and with '+
+        localStorage.getItem("percussion-instrument")+'. This music sounds '+localStorage.getItem("mood")+'.';
+
+    document.getElementById("prompt-text").innerHTML = prompt;
+    const audioPlayer = document.getElementById('audio-player');
+    audioPlayer.src = localStorage.getItem('audioBlobUrl');
+    console.log(localStorage.getItem('audioBlobUrl'));
+    audioPlayer.style.display = 'block';
+    // document.getElementById('audio-player').play();
+  </script>
+
+  </body>
+</html>

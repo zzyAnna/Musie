@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title>Musie</title>
+    <link rel="icon" href="images/logo-pure.png" />
+
+    <style>
+      .loader {
+        border: 12px solid #f3f3f3; 
+        border-top: 12px solid rgb(131, 60, 212);
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        animation: spin 1s linear infinite;
+        position: absolute; 
+        left: 47%;
+        transform: translateX(-47%);
+        top: 40%;
+        -ms-transform: translateY(-40%);
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      #loader-wrapper{
+        width: 100%;
+        height: 100%; 
+      }
+      
+      #gif-wrapper {
+        width: 100%;
+        height: 100%; 
+      }
+      
+      #gif{
+        width: 35%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 30%;
+        -ms-transform: translateY(-30%);
+      }
+      </style>
+  </head>
+
+  <body>
+    <div id="gif-wrapper">
+      <img id="gif" src="images/loading-notice.gif" loop=infinite />
+    </div>
+
+    <div id="loader-wrapper">
+      <div class="loader"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      function generateMusic(){
+        const prompt = 'Create a piece of '+localStorage.getItem("genre")+
+        ' music with a '+localStorage.getItem("solo-instrument")+' as a solo instrument, a '+
+        localStorage.getItem("accompaniment-instrument")+' as an accompaniment instrument, and with '+
+        localStorage.getItem("percussion-instrument")+'. And make the music sound '+localStorage.getItem("mood")+'.';
+
+        console.log(prompt)
+
+          fetch('/generate-music', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Access-Control-Allow-Origin': '*'
+              },
+              body: JSON.stringify({ prompt: prompt })
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              return response.blob();
+          })
+          .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            localStorage.setItem('audioBlobUrl', url);
+            window.location.href = 'generate.html';
+          })
+          .catch(error => console.error('There was a problem with the fetch operation:', error));
+      }
+
+      generateMusic();
+   </script>
+
+  </body>
+</html>

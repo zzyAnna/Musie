@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: arial;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo-pic {
+  width: 10%;
+  position: relative;
+  left: 1.5rem;
+  top: 1rem;
+}
+
+.title {
+  color: blueviolet;
+  font-size: 4.6rem;
+  letter-spacing: 0.15rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
+
+  font-family: "Cookie", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text {
+  color: black;
+  text-align: center;
+  margin: 3rem 0 1rem 0;
+}
+
+.form-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.solo-select,
+.accompaniment-select,
+.percussion-select {
+  margin-bottom: 2rem;
+}
+
+label {
+  font-weight: bold;
+  color: rgb(104, 31, 173);
+  margin-bottom: 0.6rem;
+  font-size: 1.25rem;
+  display: block;
+}
+
+.select-text {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: black;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.create-button {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  margin-top: 1.5rem;
+  border-radius: 2.5rem;
+  border: 2px solid blueviolet;
+  padding: 0.625rem 1.25rem;
+  background-color: white;
+  color: blueviolet;
+  transition: background-color 0.15s, color 0.15s;
+  width: 8.5rem;
+  text-align: center;
+}
+
+.create-button:hover {
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
+}
+
+#button-wrapper-inst {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+  margin: 3rem auto;
+}

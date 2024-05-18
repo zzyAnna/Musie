@@ -1,0 +1,116 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Musie</title>
+  <link rel="icon" href="images/logo-pure.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="header">
+    <a href="index.html"
+      ><img class="logo-pic" src="images/logo.png" alt="Logo"
+    /></a>
+    <div class="title">Style Selection</div>
+  </div>
+
+  <div id="intro-wrapper">
+    <div class="text">
+      In this section, you will choose the basic styles for your music, which
+      includes the genre and mood of your piece.
+    </div>
+  </div>
+
+  <div id="form-section-wrapper">
+    <div id="form-section">
+      <div>
+        <label for="genre"> Choose a genre: </label>
+        <select name="genre" id="genre" class="genre-select">
+          <option value="classical">Classical &#40;Default&#41;</option>
+          <option value="pop">Pop</option>
+          <option value="jazz">Jazz</option> 
+        </select>
+      </div>
+      <script>
+        function saveSelection(id) {
+          var dropdown = document.getElementById(id);
+          var savedValue = localStorage.getItem(id);
+
+          if (savedValue) {
+            dropdown.value = savedValue;
+          }
+
+          dropdown.addEventListener("change", function () {
+            localStorage.setItem(id, dropdown.value);
+          });
+        }
+      </script>
+
+      <div>
+        <label for="mood"> Choose the mood: </label>
+        <select name="mood" id="mood" class="mood-select">
+          <option value="default">Go with default</option>
+          <option value="sad">Sad</option>
+          <option value="happy">Happy</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div id="button-wrapper-inst">
+    <div class="create-button" id="reset-button">Reset</div>
+    <a href="customize.html" id="save-exit-link"
+      ><div class="create-button">Save & Exit</div></a
+    >
+  </div>
+  
+  <script>
+    function clearSelections1() {
+      localStorage.removeItem("genre");
+      localStorage.removeItem("mood");
+
+      document.getElementById("genre").value = "classical";
+      document.getElementById("mood").value = "default";
+    }
+
+    function saveAllSelections() {
+      var genre = document.getElementById("genre").value;
+      var mood = document.getElementById("mood").value;
+
+      localStorage.setItem("genre", genre);
+      localStorage.setItem("mood", mood);
+    }
+
+    document
+      .getElementById("reset-button")
+      .addEventListener("click", function () {
+        clearSelections1();
+      });
+
+    document
+      .getElementById("save-exit-link")
+      .addEventListener("click", function () {
+        saveAllSelections();
+      });
+
+    // Save selections on change to ensure they are remembered
+    document
+      .getElementById("genre")
+      .addEventListener("change", saveAllSelections);
+    document
+      .getElementById("mood")
+      .addEventListener("change", saveAllSelections);
+
+    window.addEventListener("load", function () {
+      saveSelection("genre");
+      saveSelection("mood");
+    });
+
+  </script>
+
+<script src="main.js"></script>
+
+</body>

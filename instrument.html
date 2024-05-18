@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Musie</title>
+    <link rel="icon" href="images/logo-pure.png" />
+    <link rel="stylesheet" href="instrument.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">  
+  </head>
+
+  <body>
+    <div class="header">
+      <a href="index.html"
+        ><img class="logo-pic" src="images/logo.png" alt="Logo"
+      /></a>
+      <div class="title">Instrument Selection</div>
+    </div>
+
+    <div class="text">
+      In this section, you will choose the instruments that will be used to
+      generate your music.
+    </div>
+
+    <div class="form-section">
+      <div class="solo-select">
+        <label for="solo-instrument">Choose a solo instrument:</label>
+        <div class="select-text">
+          Solo Instruments play the melody of a piece. Its timbre and tonality
+          determine the overall style of the piece.
+        </div>
+        <select name="solo-instrument" id="solo-instrument">
+          <option value="flute">Flute &#40;Default&#41;</option>
+          <option value="violin">Violin</option>
+        </select>
+        <script>
+          function saveSelection(id) {
+            var dropdown = document.getElementById(id);
+            var savedValue = localStorage.getItem(id);
+
+            if (savedValue) {
+              dropdown.value = savedValue;
+            }
+
+            dropdown.addEventListener("change", function () {
+              localStorage.setItem(id, dropdown.value);
+            });
+          }
+        </script>
+      </div>
+
+      <div class="accompaniment-select">
+        <label for="accompaniment-instrument">
+          Choose an accompaniment instrument:
+        </label>
+        <div class="select-text">
+          Accompaniment Instruments act as a supplement to the solo instrument.
+        </div>
+        <select name="accompaniment-instrument" id="accompaniment-instrument">
+          <option value="piano">Piano &#40;Default&#41;</option>
+          <option value="guitar">Guitar</option>
+        </select>
+      </div>
+
+      <div class="percussion-select">
+        <label for="percussion-instrument">
+          Choose a percussion instrument:
+        </label>
+        <div class="select-text">Percussion Instruments determine the tempo and rhythm of a piece. </div>
+        <select name="percussion-instrument" id="percussion-instrument">
+          <option value="none">No Percussion Instrument</option>
+          <option value="drumset">Drum Set</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="button-wrapper-inst">
+      <div class="create-button" id="reset-button">Reset</div>
+      <a href="customize.html" id="save-exit-link"
+        ><div class="create-button">Save & Exit</div></a
+      >
+    </div>
+
+    <script>
+      function clearSelections() {
+        localStorage.removeItem("solo-instrument");
+        localStorage.removeItem("accompaniment-instrument");
+        localStorage.removeItem("percussion-instrument");
+
+        document.getElementById("solo-instrument").value = "flute";
+        document.getElementById("accompaniment-instrument").value = "piano";
+        document.getElementById("percussion-instrument").value = "none";
+      }
+
+      function saveAllSelections() {
+        var soloInstrument = document.getElementById("solo-instrument").value;
+        var accompanimentInstrument = document.getElementById(
+          "accompaniment-instrument",
+        ).value;
+        var percussionInstrument = document.getElementById(
+          "percussion-instrument",
+        ).value;
+
+        localStorage.setItem("solo-instrument", soloInstrument);
+        localStorage.setItem(
+          "accompaniment-instrument",
+          accompanimentInstrument,
+        );
+        localStorage.setItem("percussion-instrument", percussionInstrument);
+      }
+
+      document
+        .getElementById("reset-button")
+        .addEventListener("click", function () {
+          clearSelections();
+        });
+
+      document
+        .getElementById("save-exit-link")
+        .addEventListener("click", function () {
+          saveAllSelections();
+        });
+
+      // Save selections on change to ensure they are remembered
+      document
+        .getElementById("solo-instrument")
+        .addEventListener("change", saveAllSelections);
+      document
+        .getElementById("accompaniment-instrument")
+        .addEventListener("change", saveAllSelections);
+      document
+        .getElementById("percussion-instrument")
+        .addEventListener("change", saveAllSelections);
+
+      window.addEventListener("load", function () {
+        saveSelection("solo-instrument");
+        saveSelection("accompaniment-instrument");
+        saveSelection("percussion-instrument");
+      });
+    </script>
+  </body>
+</html>

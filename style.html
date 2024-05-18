@@ -52,9 +52,9 @@
       <div>
         <label for="mood"> Choose the mood: </label>
         <select name="mood" id="mood" class="mood-select">
-          <option value="default">Go with default</option>
+          <option value="happy">Happy &#40;Default&#41;</option>
           <option value="sad">Sad</option>
-          <option value="happy">Happy</option>
+          <option value="solemn">Solemn</option>
         </select>
       </div>
     </div>
@@ -73,7 +73,7 @@
       localStorage.removeItem("mood");
 
       document.getElementById("genre").value = "classical";
-      document.getElementById("mood").value = "default";
+      document.getElementById("mood").value = "happy";
     }
 
     function saveAllSelections() {

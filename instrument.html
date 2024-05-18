@@ -70,8 +70,8 @@
         </label>
         <div class="select-text">Percussion Instruments determine the tempo and rhythm of a piece. </div>
         <select name="percussion-instrument" id="percussion-instrument">
-          <option value="none">No Percussion Instrument</option>
-          <option value="drumset">Drum Set</option>
+          <option value="no percussion instrument">None &#40;Default&#41;</option>
+          <option value="a drumset">Drum Set</option>
         </select>
       </div>
     </div>
@@ -91,7 +91,7 @@
 
         document.getElementById("solo-instrument").value = "flute";
         document.getElementById("accompaniment-instrument").value = "piano";
-        document.getElementById("percussion-instrument").value = "none";
+        document.getElementById("percussion-instrument").value = "no percussion instrument";
       }
 
       function saveAllSelections() {

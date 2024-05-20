@@ -22,8 +22,8 @@ def generate_music(prompt):
     )
 
     audio_values = model.generate(**inputs, max_new_tokens=512)
-
     sampling_rate = model.config.audio_encoder.sampling_rate
+    
     filename = f"{prompt[:15].replace(' ', '_')}.wav"
     scipy.io.wavfile.write(filename, rate=sampling_rate, data=audio_values[0, 0].numpy())
     print(f'{time.time() - start}', '---end----')
@@ -46,9 +46,6 @@ def generate_music_endpoint():
         return send_file(filename, as_attachment=True)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-    # finally:
-    #     if os.path.exists(filename):
-    #         os.remove(filename)  # Clean up the file after sending it
 
 
 if __name__ == '__main__':
